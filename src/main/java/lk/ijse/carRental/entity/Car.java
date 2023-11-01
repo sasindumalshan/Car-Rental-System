@@ -20,7 +20,7 @@ import javax.persistence.*;
 @ToString
 
 @Entity
-public class CarDTO {
+public class Car {
     @Id
     @Column(name = "reg_number", columnDefinition = "VARCHAR(64)")
     private String reg_number;
@@ -39,5 +39,6 @@ public class CarDTO {
 
     @OneToOne(targetEntity = CarPrice.class, cascade = CascadeType.ALL)
     private CarPrice cp_id;
+    private String carCode;
 
 }

@@ -1,8 +1,14 @@
-package lk.ijse.spring;
+package lk.ijse.carRental;
 
-import lk.ijse.spring.config.WebAppConfig;
-import lk.ijse.spring.config.WebRootConfig;
+import lk.ijse.carRental.config.WebAppConfig;
+import lk.ijse.carRental.config.WebRootConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+/**
+ * @author Sasindu Malshan
+ * @project CarRental
+ * @date 10/26/2023
+ */
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override

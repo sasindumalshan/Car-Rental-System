@@ -1,4 +1,4 @@
-package lk.ijse.spring.util;
+package lk.ijse.carRental.utility;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package lk.ijse.carRental.entity.types;
+package lk.ijse.carRental.utility.types;
 
 /**
  * @author Sasindu Malshan

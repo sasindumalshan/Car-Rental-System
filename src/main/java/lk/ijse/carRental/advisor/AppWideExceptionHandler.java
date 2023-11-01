@@ -1,12 +1,10 @@
-package lk.ijse.spring.advisor;
+package lk.ijse.carRental.advisor;
 
-import lk.ijse.spring.util.ResponseUtil;
+import lk.ijse.carRental.utility.ResponseUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.sql.SQLException;
 
 //this is also a type of aspect
 //this class will handle all the runtime exceptions of the application
@@ -18,10 +16,9 @@ public class AppWideExceptionHandler {
     //here we have used the Response Util Class to generate a json object
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)//set status to 500
     @ExceptionHandler({RuntimeException.class})//handle the runtime exception through the below method
-    public ResponseUtil handleAllRuntimeExceptions(RuntimeException e){
-        return new ResponseUtil("Error",e.getMessage(),null);
+    public ResponseUtil handleAllRuntimeExceptions(RuntimeException e) {
+        return new ResponseUtil("Error", e.getMessage(), null);
     }
-
 
 
 }

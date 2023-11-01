@@ -1,4 +1,4 @@
-package lk.ijse.carRental.entity.types;
+package lk.ijse.carRental.utility.types;
 
 /**
  * @author Sasindu Malshan
@@ -6,6 +6,6 @@ package lk.ijse.carRental.entity.types;
  * @date 10/25/2023
  */
 
-public enum BookingStatus {
+public enum UserAccess {
     ACCEPT,DENY
 }

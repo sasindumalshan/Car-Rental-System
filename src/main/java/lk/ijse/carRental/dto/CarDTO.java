@@ -20,7 +20,7 @@ import javax.persistence.*;
 @ToString
 
 
-public class Car {
+public class CarDTO {
 
     private String reg_number;
     private String type;
@@ -30,5 +30,7 @@ public class Car {
     private Fuel fuel_type;
     private CarImg carImg;
     private CarPrice cp_id;
+    private String carCode;
+
 
 }

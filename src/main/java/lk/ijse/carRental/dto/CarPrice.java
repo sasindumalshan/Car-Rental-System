@@ -1,4 +1,4 @@
-package lk.ijse.carRental.entity;
+package lk.ijse.carRental.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,10 +20,9 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @ToString
 
-@Entity
+
 public class CarPrice {
-    @Id
-    @Column(name = "cp_id", columnDefinition = "VARCHAR(64)")
+
     private String cp_id;
     private double month_for_Rate_km;
     private double Day_for_free_Km;

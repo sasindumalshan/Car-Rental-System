@@ -42,5 +42,7 @@ public class User {
     @Column(name = "role", columnDefinition = "VARCHAR(15)")
     @Enumerated(EnumType.STRING)
     private Role role;
+    private String fistName;
+    private String lastName;
 
 }
