@@ -1,4 +1,4 @@
-Fonticons, Inc. (https://fontawesome.com)
+Fonticons, Inc. (https://asset.fontawesome.com)
 
 --------------------------------------------------------------------------------
 
@@ -6,7 +6,7 @@ Font Awesome Free License
 
 Font Awesome Free is free, open source, and GPL friendly. You can use it for
 commercial projects, open source projects, or really almost whatever you want.
-Full Font Awesome Free license: https://fontawesome.com/license/free.
+Full Font Awesome Free license: https://asset.fontawesome.com/license/free.
 
 --------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ as SVG and JS file types.
 In the Font Awesome Free download, the SIL OFL license applies to all icons
 packaged as web and desktop font files.
 
-Copyright (c) 2023 Fonticons, Inc. (https://fontawesome.com)
+Copyright (c) 2023 Fonticons, Inc. (https://asset.fontawesome.com)
 with Reserved Font Name: "Font Awesome".
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.

@@ -22,7 +22,7 @@ import java.util.List;
 @ToString
 
 
-public class Booking {
+public class BookingDTO {
     private String booking_id;
     private byte[] slip;
     private String c_nic;
@@ -32,7 +32,7 @@ public class Booking {
     private double net_payment;
     private double booking_payment;
 
-    private List<BookingDetails> orderDetails;
+    private List<BookingDetailsDTO> orderDetails;
 
     private UserDTO userDTO;
 

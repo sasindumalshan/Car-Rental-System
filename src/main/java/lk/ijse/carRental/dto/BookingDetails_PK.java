@@ -18,4 +18,5 @@ import java.io.Serializable;
 public class BookingDetails_PK implements Serializable {
     private String booking_id;
     private String reg_number;
+
 }

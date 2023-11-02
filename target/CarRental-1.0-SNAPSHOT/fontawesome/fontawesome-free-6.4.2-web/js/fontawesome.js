@@ -1,5 +1,5 @@
 /*!
- * Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.4.2 by @asset.fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  * Copyright 2023 Fonticons, Inc.
  */
@@ -271,7 +271,7 @@
   var DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
   var DATA_PREFIX = 'data-prefix';
   var DATA_ICON = 'data-icon';
-  var HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
+  var HTML_CLASS_I2SVG_BASE_CLASS = 'asset.fontawesome-i2svg';
   var MUTATION_APPROACH_ASYNC = 'async';
   var TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS = ['HTML', 'HEAD', 'STYLE', 'SCRIPT'];
   var PRODUCTION = function () {
@@ -1856,7 +1856,7 @@
     var comment = " ".concat(node.outerHTML, " ");
     /* BEGIN.ATTRIBUTION */
 
-    comment = "".concat(comment, "Font Awesome fontawesome.com ");
+    comment = "".concat(comment, "Font Awesome asset.fontawesome.com ");
     /* END.ATTRIBUTION */
 
     return comment;

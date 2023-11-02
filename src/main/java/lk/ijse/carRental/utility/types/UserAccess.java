@@ -7,5 +7,5 @@ package lk.ijse.carRental.utility.types;
  */
 
 public enum UserAccess {
-    ACCEPT,DENY
+    ACCEPT,DENY,PENDING
 }

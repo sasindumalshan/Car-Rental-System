@@ -31,8 +31,8 @@ public class BookingDetails {
     private String reg_number;
 
     @Id
-    @Column(name = "d_id" ,columnDefinition = "VARCHAR(64)")
-    private String d_id;
+    @Column(name = "driver_id" ,columnDefinition = "VARCHAR(64)")
+    private String driver_id;
 
     private double used_km;
     private double pre_km;

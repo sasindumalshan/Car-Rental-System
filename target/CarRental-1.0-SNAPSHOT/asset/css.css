@@ -227,6 +227,11 @@ header{
     background: var(--primary-color-light);
 }
 
-
+.font-p-c{
+    color: var(--primary-color-light);
+}
+.font-y-c{
+    color: #d2bd00;
+}
 
 

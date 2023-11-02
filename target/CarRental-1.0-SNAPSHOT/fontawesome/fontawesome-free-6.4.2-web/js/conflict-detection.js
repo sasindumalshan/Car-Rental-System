@@ -1,6 +1,6 @@
 /*!
- * Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Font Awesome Free 6.4.2 by @asset.fontawesome - https://asset.fontawesome.com
+ * License - https://asset.fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  * Copyright 2023 Fonticons, Inc.
  */
 (function (global, factory) {
@@ -738,7 +738,7 @@
         }).then(function () {
           var node = document.getElementById(nodeUnderTestId);
           parent.postMessage({
-            type: 'fontawesome-conflict',
+            type: 'asset.fontawesome-conflict',
             technology: 'webfont',
             href: node.href,
             innerText: node.innerText,
@@ -840,7 +840,7 @@
         }).then(function () {
           var scriptNode = document.getElementById(nodeUnderTestId);
           parent.postMessage({
-            type: 'fontawesome-conflict',
+            type: 'asset.fontawesome-conflict',
             technology: 'js',
             src: scriptNode.src,
             innerText: scriptNode.innerText,
@@ -903,7 +903,7 @@
     WINDOW.onmessage = function (e) {
       if (WINDOW.location.origin === 'file://' || e.origin === WINDOW.location.origin) {
         if (e && e.data) {
-          if (e.data.type === 'fontawesome-conflict') {
+          if (e.data.type === 'asset.fontawesome-conflict') {
             nodesTested.conflict[e.data.md5] = e.data;
           } else if (e.data.type === 'no-conflict') {
             nodesTested.noConflict[e.data.md5] = e.data;

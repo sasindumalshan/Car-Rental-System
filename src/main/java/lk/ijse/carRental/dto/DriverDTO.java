@@ -17,7 +17,7 @@ import lombok.ToString;
 @ToString
 
 
-public class Driver {
+public class DriverDTO {
 
     UserAccess access;
     private String d_id;

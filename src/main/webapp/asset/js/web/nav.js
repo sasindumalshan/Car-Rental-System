@@ -38,5 +38,6 @@ function rentNowACarForSendDataRentPage(carCodeTextValue) {
     });*/
 
     localStorage.setItem("carCode",carCodeTextValue);
+    localStorage.setItem("nic",$("#user-nic-header").text());
 
 }

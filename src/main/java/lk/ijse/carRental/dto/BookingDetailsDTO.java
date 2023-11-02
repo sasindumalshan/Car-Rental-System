@@ -20,11 +20,13 @@ import java.time.LocalDate;
 @ToString
 
 
-public class BookingDetails {
+public class BookingDetailsDTO {
 
     private String booking_id;
 
     private String reg_number;
+
+    private String driver_id;
 
     private double used_km;
     private double pre_km;
@@ -35,7 +37,9 @@ public class BookingDetails {
     private double ex_km;
     private double free_km;
 
-    private Booking booking;
+    private BookingDTO booking;
 
     private CarDTO carDTO;
+
+    private DriverDTO driverDTO;
 }
