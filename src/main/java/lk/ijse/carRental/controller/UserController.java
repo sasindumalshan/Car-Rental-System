@@ -3,6 +3,7 @@ package lk.ijse.carRental.controller;
 import jdk.jfr.ContentType;
 import lk.ijse.carRental.dto.UserDTO;
 import lk.ijse.carRental.dto.img;
+import lk.ijse.carRental.entity.User;
 import lk.ijse.carRental.service.impl.UserService;
 import lk.ijse.carRental.utility.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +35,13 @@ public class UserController {
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseUtil userSave(@ModelAttribute UserDTO userDTO) throws IOException {
-        userService.saveUser(userDTO);
-      return   new ResponseUtil("200","User Added",userDTO.getC_nic());
+        return   new ResponseUtil("200","User Added",userService.saveUser(userDTO));
     }
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE} ,path ="/checkUser")
     public ResponseUtil checkUser(@ModelAttribute UserDTO userDTO) throws IOException {
         if (userService.existsUserByC_nicAndPassword(userDTO)){
-            return   new ResponseUtil("200","exists User ",userDTO.getC_nic());
+            return   new ResponseUtil("200","exists User ",userService.getUser(userDTO.getC_nic()));
         }
         return   new ResponseUtil("404","not User ","GUEST");
 

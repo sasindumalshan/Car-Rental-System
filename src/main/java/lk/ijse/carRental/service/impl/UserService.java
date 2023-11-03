@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 
 public interface UserService  {
-    void saveUser(UserDTO userDTO) throws IOException;
+    UserDTO saveUser(UserDTO userDTO) throws IOException;
 
     boolean existsUserByC_nicAndPassword(UserDTO userDTO) throws IOException;
 

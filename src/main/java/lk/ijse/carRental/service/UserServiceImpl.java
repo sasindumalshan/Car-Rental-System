@@ -25,9 +25,10 @@ public class UserServiceImpl implements UserService {
     ModelMapper mapper;
 
     @Override
-    public void saveUser(UserDTO userDTO) throws IOException {
+    public UserDTO saveUser(UserDTO userDTO) throws IOException {
         if (!userRepo.existsById(userDTO.getC_nic())){
-           userRepo.save(userDTO.toEntity());
+            //User save = ;
+           return mapper.map(userRepo.save(userDTO.toEntity()),UserDTO.class);
         }else {
             throw new RuntimeException(userDTO.getC_nic()+"User NIC is Already Exists ");
         }

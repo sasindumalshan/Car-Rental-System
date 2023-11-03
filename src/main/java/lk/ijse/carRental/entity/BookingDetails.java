@@ -46,16 +46,16 @@ public class BookingDetails {
     private double free_km;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinColumn(name = "booking_id",referencedColumnName = "booking_id",insertable = false,updatable = false)
     private Booking booking;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "reg_number",referencedColumnName = "reg_number",insertable = false,updatable = false)
     private Car car;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "driver_id",referencedColumnName = "d_id",insertable = false,updatable = false)
     private Driver driver;
 }

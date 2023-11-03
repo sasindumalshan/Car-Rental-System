@@ -22,4 +22,12 @@ public interface BookingService {
     List<String> findAvailableDrivers();
 
     List<BookingDetailsDTO> findBookingDetailsByBooking_id(String booking_id);
+
+    List<BookingDetailsDTO> getBookingDetailsNewForDriver(String nic);
+
+    long getBookingDetailsCompletedForDriver(String nic);
+
+    List<BookingDetailsDTO> getAllBookingDetailsForDriver(String nic);
+
+    BookingDTO findByBooking(String booking_id);
 }

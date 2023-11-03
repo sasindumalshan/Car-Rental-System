@@ -3,6 +3,7 @@ package lk.ijse.CarRental.repo;
 import lk.ijse.carRental.config.WebRootConfig;
 import lk.ijse.carRental.dto.BookingDTO;
 import lk.ijse.carRental.dto.DriverDTO;
+import lk.ijse.carRental.dto.UserDTO;
 import lk.ijse.carRental.dto.projection.BookingProjectionDTO;
 import lk.ijse.carRental.entity.Booking;
 import lk.ijse.carRental.entity.BookingDetails;
@@ -21,6 +22,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Sasindu Malshan
@@ -42,7 +44,6 @@ public class BookingTest {
     @Autowired
     BookingDetailsRepo repo;
 
-    @Test
     public void getBooking() {
 //        List<BookingDTO> booking = bookingService.getBooking(nic);
         List<Booking> user = bookingRepo.findByUser("200144367300");
@@ -78,5 +79,13 @@ public class BookingTest {
 //        if (booking_id==null){ booking_id="B001";}
 //
 //        System.out.println(booking_id);
+    }
+    @Test
+    public void getBookingId(){
+       // bookingRepo.find("B001");
+        Booking b001 = bookingRepo.findByBooking("B001");
+        BookingDTO map = mapper.map(b001, BookingDTO.class);
+        UserDTO map2 = mapper.map(b001.getUser(), UserDTO.class);
+        System.out.println(map2.toString());
     }
 }

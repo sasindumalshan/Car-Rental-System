@@ -2,6 +2,7 @@ package lk.ijse.carRental.controller;
 
 import lk.ijse.carRental.dto.*;
 import lk.ijse.carRental.dto.projection.BookingProjectionDTO;
+import lk.ijse.carRental.dto.projection.DriverBookingDetails;
 import lk.ijse.carRental.dto.projection.RequestDataProjection;
 import lk.ijse.carRental.entity.Booking;
 import lk.ijse.carRental.entity.BookingDetails;
@@ -16,6 +17,7 @@ import lk.ijse.carRental.utility.types.UserAccess;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -48,17 +50,17 @@ public class BookingController {
     public String bookingRequest(@RequestBody RequestDataProjection rentData) throws IOException {
 //        System.out.println(rentData.toString());
         List<BookingDTO> all = bookingService.getAll();
-        List<BookingDetailsDTO> orderDetails=new ArrayList<>();
+        List<BookingDetailsDTO> orderDetails = new ArrayList<>();
         User user = userService.getUser(rentData.getNic());
         String newBooking = getNewBooking(all);
 
         List<BookingProjectionDTO> carBooking = rentData.getCarBooking();
-        for (BookingProjectionDTO projectionDTO:carBooking) {
+        for (BookingProjectionDTO projectionDTO : carBooking) {
             List<String> availableDrivers = bookingService.findAvailableDrivers();
-            DriverDTO byId=null;
-            if (availableDrivers.size()>0){
-                 byId = driverService.findById(availableDrivers.get(0));
-            }else {
+            DriverDTO byId = null;
+            if (availableDrivers.size() > 0) {
+                byId = driverService.findById(availableDrivers.get(0));
+            } else {
                 new RuntimeException("Sorry No drivers ");
             }
 
@@ -100,19 +102,20 @@ public class BookingController {
             booking_id = dto.getBooking_id();
         }
         if (booking_id == null) {
-           return  "B001";
+            return "B001";
         }
         String[] split = booking_id.split("B00");
         int getLastNumber = Integer.parseInt(split[1]);
         getLastNumber++;
-        return "B00"+getLastNumber;
+        return "B00" + getLastNumber;
     }
 
     @GetMapping(path = "/getbooking", params = {"nic"})
     public ResponseUtil getBooking(String nic) throws IOException {
         List<BookingDTO> user = bookingService.getBooking(nic);
 
-        List<BookingDTO> booking= mapper.map(user,new TypeToken<List<BookingDTO>>(){}.getType());
+        List<BookingDTO> booking = mapper.map(user, new TypeToken<List<BookingDTO>>() {
+        }.getType());
 
         System.out.println(booking.toString());
 
@@ -134,6 +137,59 @@ public class BookingController {
 
 
         return new ResponseUtil("200", "ok ok", list);
+    }
+
+    @GetMapping(path = "/getBookingDetailsNew",produces = {MediaType.APPLICATION_JSON_VALUE},params = {"driver_id"})
+    public ResponseUtil getBookingDetailsNewForDriver(String driver_id) {
+        System.out.println(driver_id);
+        List<BookingDetailsDTO> b = bookingService.getBookingDetailsNewForDriver(driver_id);
+        List<DriverBookingDetails> to = new ArrayList<>();
+        for (BookingDetailsDTO e:b) {
+            DriverBookingDetails d = new DriverBookingDetails();
+            BookingDTO booking = e.getBooking();
+
+            BookingDTO byBooking = bookingService.findByBooking(booking.getBooking_id());
+            UserDTO userDTO = byBooking.getUserDTO();
+            d.setBooking_id(e.getBooking_id());
+            d.setUserName(userDTO.getFistName()+" "+userDTO.getLastName());
+            d.setReg_number(e.getReg_number());
+            d.setNic(userDTO.getC_nic());
+            d.setBooking_start(e.getBooking_start());
+            d.setBooking_end(e.getBooking_end());
+            d.setStatus(String.valueOf(byBooking.getStatus()));
+            to.add(d);
+        }
+
+        return new ResponseUtil("200", "ok ok", to);
+    }
+
+    @GetMapping(path = "/getBookingDetailsCompletedCount",produces = {MediaType.APPLICATION_JSON_VALUE},params = {"driver_id"})
+    public ResponseUtil getBookingDetailsCompletedForDriver(String driver_id) {
+        System.out.println(driver_id);
+        return new ResponseUtil("200", "ok ok", bookingService.getBookingDetailsCompletedForDriver(driver_id));
+    }
+
+    @GetMapping(path = "/getAllBooking",produces = {MediaType.APPLICATION_JSON_VALUE},params = {"driver_id"})
+    public ResponseUtil getAllBookingDetailsForDriver(String driver_id) {
+        List<BookingDetailsDTO> b = bookingService.getAllBookingDetailsForDriver(driver_id);
+        List<DriverBookingDetails> to = new ArrayList<>();
+        for (BookingDetailsDTO e:b) {
+            DriverBookingDetails d = new DriverBookingDetails();
+            BookingDTO booking = e.getBooking();
+
+            BookingDTO byBooking = bookingService.findByBooking(booking.getBooking_id());
+            UserDTO userDTO = byBooking.getUserDTO();
+            d.setBooking_id(e.getBooking_id());
+            d.setUserName(userDTO.getFistName()+" "+userDTO.getLastName());
+            d.setReg_number(e.getReg_number());
+            d.setNic(userDTO.getC_nic());
+            d.setBooking_start(e.getBooking_start());
+            d.setBooking_end(e.getBooking_end());
+            d.setStatus(String.valueOf(byBooking.getStatus()));
+            to.add(d);
+        }
+
+        return new ResponseUtil("200", "ok ok", to);
     }
 
 }
